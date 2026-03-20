@@ -1,0 +1,52 @@
+
+
+
+ts setup
+----------------------
+pnpm add typescript -D
+npx tsc --init
+ - (tsconfig.ts -- change some config)
+pnpm add -D @types/node
+pnpm add -D tsx nodemon
+pnpm add express
+pnpm add -D @types/express
+ - (package.json) chcange run cmd
+
+
+GIT
+------------------
+ - husky
+pnpm add husky lint-staged -D
+npx husky init
+ - (now create .husky file create)
+
+- commitlint
+pnpm add @commitlint/cli @commitlint/config-conventional -D
+ - then create "commitlint.config.js"
+//.husky/commit-msg -> npx --no-install commitlint --edit "$1"
+
+
+
+ESLINT
+--------------------------
+pnpm add @eslint/js eslint eslint-config-prettier typescript-eslint -D
+ - then create  manually eslint.config.js (config)
+//package.json
+"lint": "eslint .",
+"lint:fix": "eslint . --fix",
+ "lint-staged": {
+    "*.{ts,js}": [
+      "eslint --fix",
+    ]
+  },
+//.husky/pre-commit  -> pnpm lint-staged
+
+
+
+prettier
+---------------------
+pnpm add -D eslint-config-prettier
+pnpm add -D --save-exact prettier
+
+ - then create .prettierrc file 
+ 
